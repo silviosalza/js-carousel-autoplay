@@ -25,7 +25,8 @@ itemsArray[activeItemIndex].classList.add("active");
 
 
 //gestisco bottone down
-nextBtn.addEventListener("click", function() {
+
+nextBtn.addEventListener("click", function next() {
     prevBtn.classList.remove("hidden");
 
     itemsArray[activeItemIndex].classList.remove("active");
@@ -64,4 +65,20 @@ prevBtn.addEventListener("click", function() {
 // Gestire il tempo di autoplay dopo il click dell'utente, rimettendo il timer di 3 secondi dopo il click per avere autoplay sempre regolare.
 // Bonus2:
 // Stoppare autoplay all'hover sullo slider e farlo ripartire al togliere del hover. Qui potrebbe servire un po di ricerca per trovare l'evento giusto
+let autoplay;
+let next = function() {
+    prevBtn.classList.remove("hidden");
 
+    itemsArray[activeItemIndex].classList.remove("active");
+
+    if (activeItemIndex < itemsArray.length - 1) {
+        activeItemIndex++;
+        
+    } else {
+        activeItemIndex= 0
+
+    }
+    itemsArray[activeItemIndex].classList.add("active");   
+}
+
+autoplay = setInterval(next, 3000)
