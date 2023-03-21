@@ -39,6 +39,8 @@ nextBtn.addEventListener("click", function next() {
 
     }
     itemsArray[activeItemIndex].classList.add("active");   
+    clearInterval(autoplay)
+    autoplay = setInterval(next, 3000)
 })
 
 //gestisco bottone up
@@ -56,6 +58,8 @@ prevBtn.addEventListener("click", function() {
 
     
     itemsArray[activeItemIndex].classList.add("active");
+    clearInterval(autoplay)
+    autoplay = setInterval(next, 3000)
 })
 
 // **Descrizione:**
